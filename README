@@ -1,0 +1,18 @@
+Kevin Druciak kdrucia1
+
+
+|  Data|Hit Rates  |Total Cycles  | Total Cache Size|
+|--|--|--|--|
+|  wa-wt fifo gcc.trace|  97.389%|  25,452,797| 16kb|
+|  nwa-wt fifo gcc.trace|  92.669%|  22,938,797| 16kb|
+|  wa-wt lru gcc.trace|  97.550%|  25,120,797| 16kb|
+|  nwa-wt lru gcc.trace|  92.389%|  22,700,397| 16kb|
+|  wa-wb fifo gcc.trace|  97.389%|  25,452,797| 16kb|
+|  wa-wb lru gcc.trace|  97.550%|  25,120,797| 16kb|
+|  wa-wt fifo gcc.trace|  97.389%|  25,452,797| 16kb|
+
+I tested every possible configuration of  policies on a cache size of 16kb. From these data alone, the  cache configuration with the best overall effectiveness is a write-allocate write-back lru cache.
+
+I tested caches with sizes below and above 16kb as well. I did not include data because increasing cache size simply led to more hits and decreasing cache size let to less hits. 16kb seems to be the sweet spot between cache size and hit rate. 
+
+Therefore, the best cache configuration is a 16kb write-allocate write-back lru cache.
